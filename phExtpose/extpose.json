@@ -1,0 +1,87 @@
+{
+    "appid": "3a716782-56cd-40e3-9e25-d8cbbeec7b20",
+    "name": "Extpose",
+    "description": "Extpose.com information gathering.",
+    "type": "devops",
+    "product_vendor": "Extpose",
+    "logo": "extpose.png",
+    "logo_dark": "extpose_dark.png",
+    "product_name": "Extpose Website",
+    "python_version": "3",
+    "product_version_regex": ".*",
+    "publisher": "Terminal Outcomes",
+    "license": "Copyright (c) Terminal Outcomes, 2023",
+    "app_version": "1.0.0",
+    "utctime_updated": "2023-03-11T13:56:19.065080Z",
+    "package_name": "phantom_extpose",
+    "main_module": "extpose_connector.py",
+    "min_phantom_version": "6.0.0.114895",
+    "app_wizard_version": "1.0.0",
+    "configuration": {},
+    "actions": [
+        {
+            "action": "test connectivity",
+            "identifier": "test_connectivity",
+            "description": "Validate the asset configuration for connectivity using supplied configuration",
+            "verbose": "",
+            "type": "test",
+            "read_only": true,
+            "parameters": {},
+            "output": [],
+            "versions": "EQ(*)"
+        },
+        {
+            "action": "get file",
+            "identifier": "get_file",
+            "description": "Downloads a file from Reputation Service, and adds it to the vault",
+            "verbose": "",
+            "type": "investigate",
+            "read_only": true,
+            "parameters": {
+                "crx_id": {
+                    "description": "Extpose CRX id",
+                    "data_type": "string",
+                    "required": true,
+                    "primary": true,
+                    "contains": [],
+                    "value_list": [],
+                    "default": "",
+                    "order": 0,
+                    "name": "crx_id"
+                }
+            },
+            "output": [
+                {
+                    "data_path": "action_result.parameter.crx_id",
+                    "data_type": "string",
+                    "contains": [],
+                    "column_name": "crx_id",
+                    "column_order": 0
+                },
+                {
+                    "data_path": "action_result.status",
+                    "data_type": "string",
+                    "column_name": "status",
+                    "column_order": 1
+                },
+                {
+                    "data_path": "action_result.message",
+                    "data_type": "string"
+                },
+                {
+                    "data_path": "summary.total_objects",
+                    "data_type": "numeric"
+                },
+                {
+                    "data_path": "summary.total_objects_successful",
+                    "data_type": "numeric"
+                }
+            ],
+            "render": {
+                "type": "table"
+            },
+            "versions": "EQ(*)"
+        }
+    ],
+    "custom_made": true
+}
